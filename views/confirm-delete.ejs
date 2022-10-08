@@ -1,0 +1,9 @@
+<%- include('./partials/head.ejs') %>
+
+    <p>Are you sure you want to delete this listing ?</p>
+
+    <form action="/lnmerch/<%= id %>?_method=delete" method="post">
+        <input type="submit" />
+    </form>
+
+    <%- include('./partials/foot.ejs') %>

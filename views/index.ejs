@@ -1,0 +1,27 @@
+<%- include('./partials/head.ejs') %>
+
+<%- include('./partials/flash.ejs') %>
+
+<%console.log(locals)%>
+
+
+  <h1>Lightning Accepted Merchants</h1>
+  
+  <ul class="merchants">
+    <% lnmerch.forEach((lightning) => { %> 
+      <li>
+        <a href="/lnmerch/<%= lightning._id %>">
+          <%= lightning.name %>
+          <img src= "<%= lightning.image %>">
+        </a>
+      
+        <a href="/lnmerch/<%= lightning._id %>/edit">Edit</a>
+
+        <a href="/lnmerch/<%= lightning._id %>/delete">Delete</a>
+    
+      </li>
+    <% }) %>
+  </ul>
+
+
+  <%- include('./partials/foot.ejs') %>

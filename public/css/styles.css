@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 65px;;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: grey;
+    color: white;
+}
+
+a img {
+    max-width: 300px;
+}
+
+img {
+    max-width: 300px;
+}
+
+ul li {
+    display: flex;
+    flex-direction: column;
+}

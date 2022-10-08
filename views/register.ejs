@@ -1,0 +1,31 @@
+<%- include('./partials/head.ejs') %>
+
+<%- include('./partials/flash.ejs') %>
+
+
+  <form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="username" name="username" class="form-control" id="username" aria-describedby="emailHelp" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="password">
+    </div>
+  
+    <button type="submit" class="btn btn-primary" value="Register">Register</button>
+  </form>
+
+  <!-- <form method="post" action="/register">
+
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required />
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required />
+
+    <input type="submit" value="Register" />
+  </form> -->
+  
+<%- include('./partials/foot.ejs') %>
