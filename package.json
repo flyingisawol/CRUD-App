@@ -1,6 +1,9 @@
 {
   "name": "crud-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.9.1"
+  },
   "description": "Project 2",
   "main": "app.js",
   "dependencies": {
@@ -44,6 +47,7 @@
     "get-intrinsic": "^1.1.3",
     "has": "^1.0.3",
     "has-symbols": "^1.0.3",
+    "heroku": "^7.64.0",
     "http-errors": "^2.0.0",
     "iconv-lite": "^0.4.24",
     "ieee754": "^1.2.1",
