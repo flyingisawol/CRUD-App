@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Merchants = require('../models/merchants.js')
 const seedData = require('../seed/seed.js')
 
-const dbURL = 'mongodb://localhost:27017/lnmerch'
+const dbURL = 'mongodb://localhost:27017/merchants'
 
 mongoose.connect(dbURL, async () => {
   console.log('Connected to db')
@@ -12,7 +12,7 @@ mongoose.connect(dbURL, async () => {
     await Merchants.create(seedData)
     console.log('Added seed data')
   } catch (err) {
-    console.log("ERROR:", err.message)
+    console.log("ERROR: ", err.message)
   }
   mongoose.connection.close()
 })

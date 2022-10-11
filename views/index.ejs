@@ -1,27 +1,36 @@
-<%- include('./partials/head.ejs') %>
+<%- include('./partials/head.ejs') %> <%- include('./partials/flash.ejs') %>
+<!-- <%console.log(locals)%> -->
 
-<%- include('./partials/flash.ejs') %>
+<div class="lnlogo">
+  <img src="/images/Lightning_Network.svg" />
+</div>
+<form method="get" action="/merchants/search">
+  <label for="name"></label>
+  <input
+    type="text"
+    name="Search"
+    id="Search`"
+    placeholder="Search LN Merchants"
+    required
+    minlength="4"
+  />
+  <br />
+  <div class="findBtn">
+    <input type="submit" value="Find Merchants ⚡️" />
+  </div>
+</form>
 
-<%console.log(locals)%>
+<!-- <div class="loader">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+  <div class="bar4"></div>
+  <div class="bar5"></div>
+  <div class="bar6"></div>
+</div> -->
 
+<div class="anchor">
+  <a href="/merchants/all/">Show All</a>
+</div>
 
-  <h1>Lightning Accepted Merchants</h1>
-  
-  <ul class="merchants">
-    <% lnmerch.forEach((lightning) => { %> 
-      <li>
-        <a href="/lnmerch/<%= lightning._id %>">
-          <%= lightning.name %>
-          <img src= "<%= lightning.image %>">
-        </a>
-      
-        <a href="/lnmerch/<%= lightning._id %>/edit">Edit</a>
-
-        <a href="/lnmerch/<%= lightning._id %>/delete">Delete</a>
-    
-      </li>
-    <% }) %>
-  </ul>
-
-
-  <%- include('./partials/foot.ejs') %>
+<%- include('./partials/foot.ejs') %>

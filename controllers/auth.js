@@ -5,10 +5,12 @@ const User = require("../models/users");
 
 const router = express.Router();
 
+// TO REGISTRATION 
 router.get("/register", (req, res) => {
   res.render("register.ejs");
-});
+})
 
+// REGISTERING
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -17,31 +19,35 @@ router.post("/register", async (req, res) => {
       password
     );
     req.login(user, () => {
-      res.redirect("/lnmerch");
+      res.redirect("/merchants");
     });
   } catch (error) {
     req.flash("error", error.message);
     res.redirect("/register");
   }
-});
+})
 
-router.get("/login", (req, res) => {
+// LOGIN CONFIRMATION ?
+router.get("/", (req, res) => {
+  console.log(req)
   if (req.isAuthenticated()) {
     res.redirect("back");
   } else {
-    res.render("login.ejs");
-  }
-});
+    res.render("home.ejs", {
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    failureRedirect: "/login",
-    successRedirect: "/lnmerch",
+    });
+  }
+})
+
+// LOGIN ROUTE
+router.post("/", passport.authenticate("local", {
+    failureRedirect: "/",
+    successRedirect: "/merchants",
     failureFlash: true,
   })
 );
 
+// LOGOUT 
 router.post("/logout", (req, res) => {
   req.logout(() => {
     res.redirect("/");

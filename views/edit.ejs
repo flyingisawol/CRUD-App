@@ -1,20 +1,73 @@
 <%- include('./partials/head.ejs') %>
 
-<form method="post" action="/bookmarks/<%= bookmark._id %>?_method=PUT">
+<form method="post" action="/merchants/<%= editMerchant._id %>?_method=PUT">
 
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title" value="<%= bookmark.title %>"/>
-    <br />
+    <label for="name">name</label>
+        <input type="text" name="name" id="name" required/>
+        <br />
 
-    <label for="url">URL</label>
-    <input type="text" name="url" id="url" value="<%= bookmark.url %>"/> 
-    <br />
+        <label for="address">address</label>
+        <input type="text" name="street" id="street" placeholder="street" required/>
+        <br />
+        <input type="text" name="suburb" id="suburb" placeholder="suburb" required/>
+        <br />
+        <input type="text" name="city" id="city" placeholder="city" required/>
+        <br />
+        <input type="text" name="state" id="state" placeholder="state" required/>
+        <br />
+        <input type="text" name="country" id="country" placeholder="country" required/>
+        <br />
+        <input type="text" name="postcode" id="postcode" placeholder="postcode" required/>
+        <br />
 
-    <label for="description">Description</label>
-    <textarea name="description" id="description"><%= bookmark.description %></textarea>
-    <br />
+        <label for="url">URL</label>
+        <input type="text" name="URL" id="URL" required/>
+        <br />
 
-    <input type="submit" value="Save Bookmark"/>
+        <label for="image">Image</label>
+        <input type="file" name="image" id="image" required />
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description" placeholder="Tell us about your business" required></textarea>
+        <br />
+
+        <label for="type">Business Type</label>
+        <select id="type" name="type" required>
+            <option value="webDev">Software Engineer</option>
+            <option value="Bar">Bar</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Barber">Barber</option>
+            <option value="Live-Music-Venue">Live Music Venue</option>
+            <option value="Consulting">Consulting</option>
+            <option value="Dog Breeder">Dog Breeder</option>
+            <option value="in-da-club">in da club</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Accomodation">Accomodation</option>
+            <option value="Farmer/foodProducer">Farmer/Food Producer</option>
+            <option value="Builder">Builder</option>
+          </select>
+        <br />
+
+        <label for="discount">Discount For LN Payments</label>
+        <select id="discount" name="discount" required>
+            <option value="0">0%</option>
+            <option value="0.05">5%</option>
+            <option value="0.1">10%</option>
+            <option value="0.15">15%</option>
+            <option value="0.2">20%</option>
+            <option value="0.25">25%</option>
+        </select>
+        <br />
+
+        <label for="onChain">On-Chain Accepted</label>
+        <select id="onChain" name="onChain">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        <br />
+
+        <input type="submit" value="⚡️Submit⚡️"/>
+
 </form>
 
 <%- include('./partials/foot.ejs') %>

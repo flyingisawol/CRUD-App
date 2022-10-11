@@ -1,31 +1,35 @@
-<%- include('./partials/head.ejs') %>
+<%- include('./partials/loginHead.ejs') %> 
+
+<h3>⚡️</h3>
 
 <%- include('./partials/flash.ejs') %>
 
+<form method="post" action="/register">
+  <label for="username">Username</label>
+  <input
+    type="text"
+    name="username"
+    id="username"
+    placeholder="admin"
+    required
+  />
 
-  <form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Username</label>
-      <input type="username" name="username" class="form-control" id="username" aria-describedby="emailHelp" required>
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" id="password">
-    </div>
-  
-    <button type="submit" class="btn btn-primary" value="Register">Register</button>
-  </form>
+  <label for="password">Password</label>
+  <input
+    type="password"
+    name="password"
+    id="password"
+    placeholder="admin"
+    required
+  />
 
-  <!-- <form method="post" action="/register">
-
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" required />
-
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required />
-
+  <div class="loginRegister">
     <input type="submit" value="Register" />
-  </form> -->
-  
+  </div>
+
+</form>
+
+<div class="loginRegisterBtn">
+  <a href="/">Login</a>
+</div>
 <%- include('./partials/foot.ejs') %>

@@ -7,6 +7,7 @@ const session = require('express-session')
 const flash = require('express-flash')
 const mongoDBSession = require('connect-mongodb-session')
 const methodOverride = require('method-override')
+const { notFoundHandler, errorHandler } = require('./middlewares/error-handlers')
 
 const User = require('./models/users')
 const Merchants = require('./models/merchants')
@@ -44,11 +45,13 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-
-
 app.use((req, res, next) => {
-    console.log(`${new Date()} ${req.method} ${req.path}`);
+    console.log(`log from app.js ln58: ${new Date()} ${req.method} ${req.path}`);
     next()
+})
+
+app.get('/explode', (req, res) => {
+    throw new Error('some error from explode route')
 })
 
 app.get('/', (req, res) => {
@@ -57,6 +60,9 @@ app.get('/', (req, res) => {
 
 app.use(authController)
 app.use(lnMerchantController)
+
+app.use(errorHandler)
+app.use(notFoundHandler)
 
 mongoose.connect(dbURL, () => {
     console.log('connected to db')

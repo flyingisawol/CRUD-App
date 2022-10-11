@@ -1,9 +1,36 @@
-<%- include('./partials/head.ejs') %>
+<%- include('./partials/loginHead.ejs') %> 
 
-<h1>LN Merchants</h1>
-<h2>Accepting payments via LN⚡️ ?</h2>
-<h2>Add your business to let bitcoiners know</h2>
-<p><a href="/login">Login</a></p>
-<p><a href="/register">Register</a></p>
+<h3>⚡️</h3>
+
+<%- include('./partials/flash.ejs') %>
+
+
+<form method="post" action="/">
+  <label for="username">Username</label>
+  <input
+    type="text"
+    name="username"
+    id="username"
+    placeholder="admin"
+    required
+  />
+
+  <label for="password">Password</label>
+  <input
+    type="password"
+    name="password"
+    id="password"
+    placeholder="admin"
+    required
+  />
+
+  <div class="loginRegister">
+    <input type="submit" value="Login" />
+  </div>
+</form>
+<div class="loginRegisterBtn">
+  <a href="/register">Register</a>
+</div>
+
 
 <%- include('./partials/foot.ejs') %>

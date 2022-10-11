@@ -1,13 +1,25 @@
 <%- include('./partials/head.ejs') %>
 
-  <h1>
-    <%= showMerchant.website %>
-      <%= showMerchant.name %>
-  </h1>
+<div class="showListing">    
+    <h1><%= showMerchant.name %></h1>
+    <h3><%= showMerchant.website %></h3>
+    <img src="<%= showMerchant.image %>" />
+    <br />
+    Accepts on-chain: <%= showMerchant.onChain %>
+    <br />
+    Discount offered for LN payments: <%= showMerchant.discount %>
+    <br />
 
-  <img src="<%= showMerchant.image %>" />
-  
-  <p><%= showMerchant.description %></p>
+    Description: <%= showMerchant.description %>
+    <br />
+    Address: <%= showMerchant.address.street %>
+    <br />
+    Business Type: <%= showMerchant.type %>
+    <br />
+    <br />
+    <div class="anchor">
+        <a href="/merchants">Back to search</a>
+    </div>
+</showListing>
 
-
-  <%- include('./partials/foot.ejs') %>
+<%- include('./partials/foot.ejs') %>

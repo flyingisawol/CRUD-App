@@ -7,64 +7,118 @@ const router = express.Router()
 
 router.use(ensureLogin.ensureLoggedIn())
 
+
 // INDEX
-router.get('/lnmerch', async (req, res) => {
-    const lnmerch = await Merchants.find()
-    console.log(lnmerch)
+router.get('/merchants', async (req, res) => {
+    // console.log(req.body)
     res.render('index.ejs', {
-        lnmerch: lnmerch,
-        tabTitle: 'home'
     })
 })
 
+// SEARCH
+router.get('/merchants/search', async (req, res) => {
+    const filters = req.query.Search 
+    const merchants = await Merchants.find()
+    let resultsArray = []
+    for (merchant of merchants) {
+        for (key in merchant) {
+            if (Array.isArray(merchant[key])) {
+                for (propertyArrayItem of merchant[key]) {
+                    console.log(propertyArrayItem)
+                    const regex = new RegExp(filters, 'i')
+                    if (regex.test(propertyArrayItem)) {
+                      resultsArray.push(merchant)
+                    }
+                }
+            } else {
+                const regex = new RegExp(filters, 'i') //changes search form entry to case insensitive substring
+                if (typeof merchant[key] === 'string' && regex.test(merchant[key])) { // tests if true and add to arry
+                    resultsArray.push(merchant)
+                }
+            }
+        }
+    } 
+    if (resultsArray.length === 0) {
+        res.render('nosearchresult.ejs') 
+    } else {
+        res.render('all.ejs', {
+        lnmerch: resultsArray
+    })
+    }
+})
+
+// SEE-ALL LIST
+router.get('/merchants/all', async (req, res) => {
+    try {
+    const lnmerch = await Merchants.find()
+    if (lnmerch) {
+        res.render('all.ejs', {
+            lnmerch: lnmerch,
+        })
+    } else {
+        throw new Error('Oopsies broke LND')
+    }
+    } catch {
+        next()
+    }
+})
+
 // NEW Route
-router.get('/lnmerch/new', (req, res) => {
+router.get('/merchants/new', (req, res) => {
     res.render('new.ejs')
 })
 
 //CREATE Route
-router.post('/lnmerch', upload.single('image'), async (req, res) => {
+router.post('/merchants', upload.single('image'), async (req, res) => {
     req.body.image = req.file.path
     await Merchants.create(req.body)
     req.flash('success', 'The lightning network grows stronger with you on it!')
-    res.redirect('/lnmerch')
+    res.redirect('/merchants')
 })  
 
 //EDIT
-router.get('/lnmerch/:id/edit', async (req, res) => {
+router.get('/merchants/:id/edit', async (req, res) => {
+    try {
     const editMerchant = await Merchants.findById(req.params.id)
-    res.render('edit.ejs', {
+    if (editMerchant) {
+        res.render('edit.ejs', {
         editMerchant: editMerchant,
     })
+    } else {
+        throw new Error('Ooopsies. Error Editing')
+    }
+} catch {
+    next()
+}
 })
 
 //UPDATE 
-router.put('/lnmerch/:id', async (req, res) => {
+router.put('/merchants/all/:id', async (req, res) => {
     const merchant = await Merchants.findByIdAndUpdate(
         req.params.id, 
         req.body,
         {new: true}
     )
     console.log('Updated merchant', merchant)
-    res.redirect('/lnmerch')
+    res.redirect('/merchants')
 })
 
 // DELETE CONFIRM route
-router.get('/lnmerch/:id/delete', (req, res) => {
+router.get('/merchants/:id/delete', (req, res) => {
     res.render('confirm-delete.ejs', {
         id: req.params.id
     })
 })
 
 //DElETE Route
-router.delete('/lnmerch/:id', async (req, res) => {
+router.delete('/merchants/:id', async (req, res) => {
     const deletedMerchant = await Merchants.findOneAndRemove(req.params.id)
     console.log('Deleted Merchant:', deletedMerchant)
-    res.redirect('/lnmerch')
+    res.redirect('/merchants')
 })
 
 // SHOW Route
-router.get('/lnmerch/:id', async (req, res) => {
+router.get('/merchants/all/:id', async (req, res) => {
     const showMerchant = await Merchants.findById(req.params.id)
     res.render ('show.ejs', {
         showMerchant: showMerchant,

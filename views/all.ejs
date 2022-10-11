@@ -1,0 +1,23 @@
+<%- include('./partials/head.ejs') %> 
+<%- include('./partials/flash.ejs') %>
+
+<ul class="merchants">
+  <% lnmerch.forEach((lightning) => { %>
+  <li>
+    <a href="/merchants/all/<%= lightning._id %>">
+      <%= lightning.name %>
+      <!-- <img src="<%= lightning.image %>" /> -->
+    </a>
+    <!-- <div class="edit">
+      <a href="/merchants/<%= lightning._id %>/edit">
+        <img src="/images/edit.png" />
+      </a>
+      <a href="/merchants/<%= lightning._id %>/delete">
+        <img src="/images/bin.png" />
+      </a>
+    </div> -->
+  </li>
+  <% }) %>
+</ul>
+
+<%- include('./partials/foot.ejs') %>

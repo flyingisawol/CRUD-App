@@ -9,7 +9,7 @@ const upload = multer({
     storage: new CloudinaryStorage({ 
         cloudinary: cloudinary, // pointing to SDK
         params: {
-            folder: 'bookmarks'
+            folder: 'merchants'
         }
     })
 })
