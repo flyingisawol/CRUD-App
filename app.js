@@ -12,7 +12,6 @@ const { notFoundHandler, errorHandler } = require('./middlewares/error-handlers'
 
 const User = require('./models/users')
 const Merchants = require('./models/merchants')
-// const authController = require('./controllers/auth')
 const lnMerchantController = require('./controllers/merchants')
 
 
@@ -42,16 +41,26 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
-// passport.use(User.createStrategy())
-// passport.serializeUser(User.serializeUser())
-// passport.deserializeUser(User.deserializeUser())
+const map = {user: new Map(),}
+
+passport.serializeUser(function(user, done) {
+	done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+	done(null, map.user.get(id) || null);
+});
 
 
 /* ----------LNURL MIDDLEWARE---------- */
 
 passport.use(new LnurlAuth.Strategy(function(linkingPublicKey, done) {
-    const user = { id: linkingPublicKey };
-    done(null, user);
+	let user = map.user.get(linkingPublicKey);
+	if (!user) {
+		user = { id: linkingPublicKey };
+		map.user.set(linkingPublicKey, user);
+	}
+	done(null, user);
 }));
 
 app.use(passport.authenticate('lnurl-auth'));
@@ -61,26 +70,27 @@ app.get('/', function(req, res) {
         return res.send('You are not authenticated. To login go <a href="/login">here</a>.');
     }
     res.send('Logged-in');
+    res.redirect('/merchants')
 });
 
-app.get('/',
+app.get('/login',
     function(req, res, next) {
         if (req.user) {
-            return res.redirect('/');
+            return res.redirect('/merchants');
         }
         next();
     },
     new LnurlAuth.Middleware({
         // The externally reachable URL for the lnurl-auth middleware.
         // It should resolve to THIS endpoint on your server.
-        callbackUrl: 'http://localhost:3000/login.html',
+        callbackUrl: 'https://24a0-158-140-193-181.eu.ngrok.io/login',
         // The URL of the "Cancel" button on the login page.
         // When set to NULL or some other falsey value, the cancel button will be hidden.
         cancelUrl: '/',
         // Instruction text shown below the title on the login page:
         instruction: 'Scan the QR code to login',
         // The file path to the login.html template:
-        loginTemplateFilePath: 'views/login.html',
+        loginTemplateFilePath: './views/login.ejs',
         // The number of seconds to wait before refreshing the login page:
         refreshSeconds: 5,
         // The title of the login page:
@@ -100,7 +110,7 @@ app.get('/',
 /* ----------^^LNURL MIDDLEWARE---------- */
 
 app.use((req, res, next) => {
-    console.log(`log from app.js ln58: ${new Date()} ${req.method} ${req.path}`);
+    console.log(`${new Date()} ${req.method} ${req.path}`);
     next()
 })
 
