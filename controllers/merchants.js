@@ -99,7 +99,7 @@ router.put('/merchants/all/:id', async (req, res) => {
         req.body,
         {new: true}
     )
-    console.log('Updated merchant', merchant)
+    // console.log('Updated merchant', merchant)
     res.redirect('/merchants')
 })
 
@@ -113,7 +113,7 @@ router.get('/merchants/:id/delete', (req, res) => {
 //DElETE Route
 router.delete('/merchants/:id', async (req, res) => {
     const deletedMerchant = await Merchants.findOneAndRemove(req.params.id)
-    console.log('Deleted Merchant:', deletedMerchant)
+    // console.log('Deleted Merchant:', deletedMerchant)
     res.redirect('/merchants')
 })
 
