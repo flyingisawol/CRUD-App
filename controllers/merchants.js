@@ -82,7 +82,7 @@ router.post('/merchants', upload.single('image'), async (req, res) => {
 })  
 
 //EDIT
-router.get('/merchants/:id/edit', async (req, res) => {
+router.get('/merchants/all/:id/edit', async (req, res) => {
     try {
     const editMerchant = await Merchants.findById(req.params.id)
     if (editMerchant) {
@@ -104,21 +104,22 @@ router.put('/merchants/all/:id', async (req, res) => {
         req.body,
         {new: true}
     )
-    console.log('Updated merchant', merchant)
+    // console.log('Updated merchant', merchant)
     res.redirect('/merchants')
 })
 
 // DELETE CONFIRM route
-router.get('/merchants/:id/delete', (req, res) => {
+router.get('/merchants/all/:id/delete', (req, res) => {
     res.render('confirm-delete.ejs', {
         id: req.params.id
     })
+    // console.log(req.params.id)
 })
 
 //DElETE Route
-router.delete('/merchants/:id', async (req, res) => {
-    const deletedMerchant = await Merchants.findOneAndRemove(req.params.id)
-    console.log('Deleted Merchant:', deletedMerchant)
+router.delete('/merchants/all/:id/', async (req, res) => {
+    const merchant = await Merchants.findByIdAndRemove(req.params.id)
+    console.log('Deleted Merchant:', merchant)
     res.redirect('/merchants')
 })
 

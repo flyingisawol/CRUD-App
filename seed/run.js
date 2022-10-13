@@ -1,9 +1,12 @@
+require('dotenv').config()
+
 const mongoose = require('mongoose')
+
 
 const Merchants = require('../models/merchants.js')
 const seedData = require('../seed/seed.js')
 
-const dbURL = 'mongodb://localhost:27017/merchants'
+const dbURL = process.env.MONGODB_URL
 
 mongoose.connect(dbURL, async () => {
   console.log('Connected to db')

@@ -1,6 +1,8 @@
 <%- include('./partials/head.ejs') %>
 
-<form method="post" action="/merchants/<%= editMerchant._id %>?_method=PUT">
+<h3>Edit listing</h3>
+<div class="formEntry">
+  <form method="post" action="/merchants/<%= editMerchant._id %>?_method=PUT">
 
     <label for="name">name</label>
         <input type="text" name="name" id="name" required/>
@@ -65,9 +67,10 @@
             <option value="No">No</option>
           </select>
         <br />
-
-        <input type="submit" value="⚡️Submit⚡️"/>
-
-</form>
+        <div class="findBtn"></div>
+          <input type="submit" value="⚡️Submit⚡️"/>
+        </div>
+  </form>
+</div>
 
 <%- include('./partials/foot.ejs') %>

@@ -46,7 +46,7 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 app.use((req, res, next) => {
-    console.log(`log from app.js ln58: ${new Date()} ${req.method} ${req.path}`);
+    console.log(`${new Date()} ${req.method} ${req.path}`);
     next()
 })
 
