@@ -1,77 +1,75 @@
 <%- include('./partials/head.ejs') %>
 
-    <h2>Accepting LN⚡️ ?</h2>
-    <h3>Add New Listing</h3>
+<h3>Add New Listing ⚡️</h3>
+<div class="formEntry">    
+  <form method="post" action="/merchants" enctype="multipart/form-data">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required/>
+    <br />
 
-    
-    <form method="post" action="/merchants" enctype="multipart/form-data">
+    <label for="address">Address</label>
+    <input type="text" name="street" id="street" placeholder="street" required/>
+    <br />
+    <input type="text" name="suburb" id="suburb" placeholder="suburb" required/>
+    <br />
+    <input type="text" name="city" id="city" placeholder="city" required/>
+    <br />
+    <input type="text" name="state" id="state" placeholder="state" required/>
+    <br />
+    <input type="text" name="country" id="country" placeholder="country" required/>
+    <br />
+    <input type="text" name="postcode" id="postcode" placeholder="postcode" required/>
+    <br />
+    <label for="url">Website</label>
+    <input type="text" name="URL" id="URL" required/>
+    <br />
+    <label for="formFile" class="form-label">Image</label>
+    <input class="form-control" type="file" name="image" id="formFile" required />
+    <br />
+    <label for="description">Description</label>
+    <input name="description" id="description" placeholder="Tell us about your business" required></textarea>
+    <br />
 
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required/>
-        <br />
+    <label for="type">Business Type</label>
+    <div class="dropit">
+      <select class="mobileFormControl" id="type" name="type" required>0
+        <option id="bob" value="web-dev">Software Engineer</option>
+        <option id="bob" value="bar">Bar</option>
+        <option id="bob" value="restaurant">Restaurant</option>
+        <option id="bob" value="barber">Barber</option>
+        <option id="bob" value="live-music">Live Music Venue</option>
+        <option id="bob" value="consulting">Consulting</option>
+        <option id="bob" value="dog-breeder">Dog Breeder</option>
+        <option id="bob" value="in-da-club">in da club</option>
+        <option id="bob" value="clothing">Clothing</option>
+        <option id="bob" value="accomodation">Accomodation</option>
+        <option id="bob" value="farmer/foodProducer">Farmer/Food Producer</option>
+        <option id="bob" value="builder">Builder</option>
+        <option id="bob" value="other">Other</option>
+      </select>
+    </div>
+    <br />
 
-        <label for="address">Address</label>
-        <input type="text" name="street" id="street" placeholder="street" required/>
-        <br />
-        <input type="text" name="suburb" id="suburb" placeholder="suburb" required/>
-        <br />
-        <input type="text" name="city" id="city" placeholder="city" required/>
-        <br />
-        <input type="text" name="state" id="state" placeholder="state" required/>
-        <br />
-        <input type="text" name="country" id="country" placeholder="country" required/>
-        <br />
-        <input type="text" name="postcode" id="postcode" placeholder="postcode" required/>
-        <br />
-
-        <label for="url">Website</label>
-        <input type="text" name="URL" id="URL" required/>
-        <br />
-
-        <label for="image">Image</label>
-        <input type="file" name="image" id="image" required />
-
-        <label for="description">Description</label>
-        <textarea name="description" id="description" placeholder="Tell us about your business" required></textarea>
-        <br />
-
-        <label for="type">Business Type</label>
-        <select id="type" name="type" required>
-            <option value="webDev">Software Engineer</option>
-            <option value="Bar">Bar</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Barber">Barber</option>
-            <option value="Live-Music-Venue">Live Music Venue</option>
-            <option value="Consulting">Consulting</option>
-            <option value="Dog Breeder">Dog Breeder</option>
-            <option value="in-da-club">in da club</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Accomodation">Accomodation</option>
-            <option value="Farmer/foodProducer">Farmer/Food Producer</option>
-            <option value="Builder">Builder</option>
-          </select>
-        <br />
-
-        <label for="discount">Discount For LN Payments</label>
-        <select id="discount" name="discount" required>
-            <option value="0">0%</option>
-            <option value="0.05">5%</option>
-            <option value="0.1">10%</option>
-            <option value="0.15">15%</option>
-            <option value="0.2">20%</option>
-            <option value="0.25">25%</option>
-        </select>
-        <br />
-
-        <label for="onChain">On-Chain Accepted</label>
-        <select id="onChain" name="onChain">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        <br />
-          <div class="findBtn">
-        <input type="submit" value="⚡️Submit⚡️"/>
-        </div>
-    </form>
+    <label for="discount">Discount For LN Payments</label>
+    <select id="discount" name="discount" required>
+        <option value="0">0%</option>
+        <option value="0.05">5%</option>
+        <option value="0.1">10%</option>
+        <option value="0.15">15%</option>
+        <option value="0.2">20%</option>
+        <option value="0.25">25%</option>
+    </select>
+    <br />
+    <label for="onChain">On-Chain Accepted</label>
+    <select id="onChain" name="onChain">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    <br />
+      <div class="findBtn">
+    <input type="submit" value="⚡️Submit⚡️"/>
+    </div>
+  </form>
+</div>
 
 <%- include('./partials/foot.ejs') %>

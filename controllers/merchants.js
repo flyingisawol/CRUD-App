@@ -27,13 +27,18 @@ router.get('/merchants/search', async (req, res) => {
                     console.log(propertyArrayItem)
                     const regex = new RegExp(filters, 'i')
                     if (regex.test(propertyArrayItem)) {
-                      resultsArray.push(merchant)
+                        if (!resultsArray.includes(merchant)) {
+                            resultsArray.push(merchant)
+                        }
                     }
                 }
             } else {
                 const regex = new RegExp(filters, 'i') //changes search form entry to case insensitive substring
                 if (typeof merchant[key] === 'string' && regex.test(merchant[key])) { // tests if true and add to arry
-                    resultsArray.push(merchant)
+                    if (!resultsArray.includes(merchant)) {
+                        resultsArray.push(merchant)
+                    }
+
                 }
             }
         }

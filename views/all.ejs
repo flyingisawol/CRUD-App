@@ -1,14 +1,22 @@
-<%- include('./partials/head.ejs') %> 
-<%- include('./partials/flash.ejs') %>
+<%- include('./partials/head.ejs') %> <%- include('./partials/flash.ejs') %>
+<div class="searchList">
+  <ul class="list-group list-group-light">
+    <% lnmerch.forEach((lightning) => { %>
+    <li class="list-group-item align-items-center">
+      <div class="d-flex align-items-center justify-content-between">
+      <img
+        src="<%= lightning.image %>"
+        style="width: 55px; height: 55px"
+        class="rounded-circle"/>
+      <div class="ms-3">
+        <a href= "/merchants/all/<%= lightning._id %>"> <%= lightning.name %>
+        </a>
+      </div>
 
-<ul class="merchants">
-  <% lnmerch.forEach((lightning) => { %>
-  <li>
-    <a href="/merchants/all/<%= lightning._id %>">
-      <%= lightning.name %>
-      <!-- <img src="<%= lightning.image %>" /> -->
-    </a>
-    <!-- <div class="edit">
+      <a class="btn btn-link btn-rounded btn-sm" href="/merchants/all/<%= lightning._id %>" role="button">
+        <%= lightning.address.city%></a>
+        
+      <!-- <div class="edit">
       <a href="/merchants/<%= lightning._id %>/edit">
         <img src="/images/edit.png" />
       </a>
@@ -16,8 +24,11 @@
         <img src="/images/bin.png" />
       </a>
     </div> -->
-  </li>
-  <% }) %>
-</ul>
+    </li>
+    <% }) %>
+  </ul>
+</div>
 
 <%- include('./partials/foot.ejs') %>
+
+<!-- https://mdbootstrap.com/docs/standard/components/list-group/  -->

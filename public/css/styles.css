@@ -93,14 +93,12 @@ a .material-symbols-outlined {
 .addBtn {
     width: 100%;
     text-align: right;
-}
-
-.addBtn a {
-    padding: 10px;
+    padding: 10px 30px;
 }
 
 .addBtn a:hover {
     color: rgb(151,120,209);
+    
 }
 
 /* ------------------------------- LOGIN PAGE ------------------------------- */
@@ -256,10 +254,8 @@ img {
 }
 
 .edit img {
-    max-width: 40px;
-    
+    max-width: 40px;   
 }
-
 
 .merchants {
     display: flex;
@@ -268,16 +264,47 @@ img {
     text-align: center;
 }
 
-li a {
+/* li a {
     display: flex;
     flex-direction: column;
     color: #ffd046;
     padding: 10px;
     text-decoration: none;
-}
+} */
 
 input[type="file"] {
     border: none;
+}
+
+.form-control {
+    background-color: #1e3d50 !important;
+}
+
+.formEntry {
+    justify-content: center;
+    padding: 5px;
+}
+
+.list-group-item {
+    /* background-color: #06283D !important; */
+    padding-bottom: 35px;
+    width: 450px;
+}
+
+.list-group-light {
+    border-radius: 20px;
+}
+
+.searchList {
+    padding: 6px;
+    border-radius: 20px;
+    background-color: #82939e;
+    margin-bottom: 65px;
+}
+
+.ms-3 a {
+    justify-content: center;
+    color: black;
 }
 
 /* ------------------------------- LOADER ------------------------------- */
@@ -292,7 +319,7 @@ input[type="file"] {
   .loader {
     margin: 0 auto;
     width: 60px;
-    height: 50px;
+    height:x;
     text-align: center;
     font-size: 10px;
     position: absolute;
@@ -366,11 +393,10 @@ footer {
     align-items: center;
     min-height: 150px;
     border-top: 2px dotted rgb(151,120,209);
-    margin-top: auto;
     background: #06283D;
     color: white;
     margin-top: auto;
-    padding-top: 25px;
+    padding-top: 40px;
     width: 100%;
 }
 

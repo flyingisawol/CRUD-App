@@ -68,6 +68,6 @@ mongoose.connect(dbURL, () => {
     console.log('connected to db')
 })
 
-app.listen(PORT, () => {
-    console.log('listening', PORT);
+app.listen(process.env.PORT || 3000, () => {
+    console.log('listening', process.env.PORT );
 })
