@@ -28,6 +28,7 @@ nav {
 .navbox3 {
     display: flex;
     align-items: center;
+    
 }
 
 .navbox1 a {
@@ -75,6 +76,7 @@ body {
     align-items: center;
     color: #B2BEB5;
     font-size: 13.5px;
+    padding-top: 20px;
 }
 
 .anchor a:hover {
@@ -222,6 +224,13 @@ input[type="submit"] {
     height:36px;
 }
 
+@media (max-width: 600px) {
+    .navbox3 input[type="submit"] {
+        width: 100px
+    }
+
+}
+
 input[type="submit"]:hover {
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     background: rgb(151,120,209);
@@ -264,13 +273,13 @@ img {
     text-align: center;
 }
 
-/* li a {
+li a {
     display: flex;
     flex-direction: column;
     color: #ffd046;
     padding: 10px;
     text-decoration: none;
-} */
+}
 
 input[type="file"] {
     border: none;
@@ -286,25 +295,60 @@ input[type="file"] {
 }
 
 .list-group-item {
-    /* background-color: #06283D !important; */
-    padding-bottom: 35px;
-    width: 450px;
-}
-
-.list-group-light {
-    border-radius: 20px;
+    min-width: 350px;
+    background-color: #06283D !important;
 }
 
 .searchList {
-    padding: 6px;
+    padding: 12px;
     border-radius: 20px;
-    background-color: #82939e;
     margin-bottom: 65px;
+    background-color: #1e3d50;
+
+}
+
+.showListing img {
+    border: 4px solid rgb(151,120,209);
+    border-radius: 20px;
+    width: 500px;
+}
+
+.showListing {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 500px;
+}
+
+@media (max-width: 600px) {
+
+    .showListing img {
+        width: 340px;
+        border: 4px solid rgb(151,120,209);
+        border-radius: 20px;
+    }
+
+    .showListing {
+        width: 350px;
+    }
 }
 
 .ms-3 a {
     justify-content: center;
-    color: black;
+    color: white;
+}
+
+
+.showListing h3 {
+    color: #ffd046;
+}
+
+.d-flex {
+    background-color: ##06283D;
+}
+
+.list-group .list-group {
+    background-color: #1e3d50;
 }
 
 /* ------------------------------- LOADER ------------------------------- */

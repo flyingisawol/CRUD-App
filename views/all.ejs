@@ -15,18 +15,13 @@
 
       <a class="btn btn-link btn-rounded btn-sm" href="/merchants/all/<%= lightning._id %>" role="button">
         <%= lightning.address.city%></a>
-        
-      <!-- <div class="edit">
-      <a href="/merchants/<%= lightning._id %>/edit">
-        <img src="/images/edit.png" />
-      </a>
-      <a href="/merchants/<%= lightning._id %>/delete">
-        <img src="/images/bin.png" />
-      </a>
-    </div> -->
     </li>
     <% }) %>
   </ul>
+</div>
+
+<div class="anchor">
+  <a href="/merchants">Back to search</a>
 </div>
 
 <%- include('./partials/foot.ejs') %>
