@@ -72,7 +72,12 @@ body {
     color: white;
     background: #06283D;
     padding-top: 15px;
+}
 
+@media (max-width: 600px) {
+    .mainBox {
+        max-width: 100%;
+    }
 }
 
 .findBtn {
@@ -313,6 +318,7 @@ input[type="file"] {
     border-radius: 20px;
     margin-bottom: 65px;
     background-color: #1e3d50;
+    width: 500px;
 
 }
 
@@ -340,6 +346,10 @@ input[type="file"] {
     .showListing {
         width: 350px;
     }
+
+    .searchList {
+        width: 100%;
+    }
 }
 
 .ms-3 a {
@@ -347,17 +357,13 @@ input[type="file"] {
     color: white;
 }
 
+.ms-3 a:hover {
+    justify-content: center;
+    color: rgb(151,120,209);
+}
 
 .showListing h3 {
     color: #ffd046;
-}
-
-.d-flex {
-    background-color: ##06283D;
-}
-
-.list-group .list-group {
-    background-color: #1e3d50;
 }
 
 /* ------------------------------- LOADER ------------------------------- */
