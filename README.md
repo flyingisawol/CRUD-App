@@ -10,11 +10,11 @@ The app provides a search function once users are logged in to find bussiness, a
 
 ### Technologies used: 
 
-Node.js, Express, MongoDB, Mongoose, Javascript, EJS, Bootstrap
+Node.js, Express, MongoDB, Mongoose, Passport, Javascript, EJS, Bootstrap
 
 
 ---
 
 ### Approach:
 My approach was to create a mobile first app focussed around search. I made a strong effort to encorporate login via lightning but was unable to get it working so left the legacy login enabled. 
-The app adheres to the RESTful conventions and utilised all 7 routes, as well as MVC structure. The app is reployed on heroku here: https://ln-merchant-finder.herokuapp.com/
+The app adheres to the RESTful conventions and utilised all 7 routes, as well as MVC structure. The app is deployed on heroku here: https://ln-merchant-finder.herokuapp.com/
