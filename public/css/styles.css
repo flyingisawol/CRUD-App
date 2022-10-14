@@ -14,11 +14,12 @@ nav {
     background: rgb(6,40,61);
     border-bottom: 2px dotted rgb(151,120,209);
     color: #ffd046;
-    padding: 10px; 
+    width: 100%;
 }
 
 .navbox1 {
     display: flex;
+    padding: 10px 0 10px 20px;
 }
 
 .navbox2 {
@@ -41,9 +42,10 @@ nav {
     color: rgb(151,120,209);
 }
 
-.navbox3 a {
+.navbox3  {
     color: inherit;
     text-decoration: none;
+    padding-right: 20px;
 }
 
 /* ------------------------------- MAIN ------------------------------- */
@@ -52,6 +54,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
 }
 
 .mainBox {
@@ -95,12 +104,11 @@ a .material-symbols-outlined {
 .addBtn {
     width: 100%;
     text-align: right;
-    padding: 10px 30px;
+    padding-right: 30px;
 }
 
 .addBtn a:hover {
     color: rgb(151,120,209);
-    
 }
 
 /* ------------------------------- LOGIN PAGE ------------------------------- */
@@ -146,7 +154,7 @@ input{
 
 @media (max-width: 600px) {
     input {
-        width: 350px;
+        width: 330px;
     }
 }
 
@@ -165,7 +173,7 @@ select {
 
 @media (max-width: 600px) {
     select {
-        width: 350px;
+        width: 330px;
     }
 }
 
@@ -227,6 +235,7 @@ input[type="submit"] {
 @media (max-width: 600px) {
     .navbox3 input[type="submit"] {
         width: 100px
+
     }
 
 }
