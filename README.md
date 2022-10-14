@@ -8,7 +8,7 @@ The app provides a search function once users are logged in to find bussiness, a
 
 ---
 
-###Technologies used: 
+### Technologies used: 
 
 Node.js, Express, MongoDB, Mongoose, Javascript, EJS, Bootstrap
 
