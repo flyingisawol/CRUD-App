@@ -242,7 +242,6 @@ input[type="submit"] {
         width: 100px
 
     }
-
 }
 
 input[type="submit"]:hover {
@@ -251,6 +250,12 @@ input[type="submit"]:hover {
     border: 1px solid #c6c6c6;
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     color: #ffd046;
+}
+
+@media (max-width: 600px) {
+    input[type="file"] {
+        width: 330px;
+    }
 }
 
 form {
@@ -462,4 +467,11 @@ footer {
 .socialLinks img {
     padding-top: 10px;
     max-width: 30px;
+}
+
+footer a {
+    padding: 15px;
+    font-size: 10px;
+    text-decoration: none;
+    color: #ffd046;
 }
